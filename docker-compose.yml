@@ -6,7 +6,7 @@ services:
     build:
       context: .
     ports:
-      - "7009:7777"
+      - "7777:7777"
     entrypoint: yarn start
     restart: always
     networks: 
