@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// const whitelist = ['http://127.0.0.1:5500'];
+const whitelist = ['http://127.0.0.1:5500'];
 const corsOptions = {
     origin: function (origin, callback) {
         if (whitelist.indexOf(origin) !== -1) {
@@ -18,7 +18,7 @@ const corsOptions = {
         }
     },
 };
-app.use(cors());
+app.use(cors(corsOptions));
 app.use('/getNews', require('./routes'));
 
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
